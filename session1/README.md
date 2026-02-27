@@ -4,7 +4,7 @@
 
 `task2`: Compiler options for defensive programming
 
-`task3`: Assertions and conditional debugging statements
+`task3`: Assertions and conditional logging
 
 `task4`: Debugging Python using Pdb
 

@@ -96,11 +96,12 @@
 
    > "If the symbol `_LOGGING_H_` is not already defined, define it and
    > then process everything up to the matching `#endif` directive; if the
-   > symbol *is* already defined, ignore the following stuff, because you've
-   > already seen it."
+   > symbol *is* already defined, ignore everything up to the matching
+   > `#endif`, because you've already seen it."
 
    An include guard like this prevents the contents of the header file from
-   being processed twice, should the file end up being included multiple times.
+   being processed more than once, should the file end up being included
+   multiple times.
 
    Note: the include guard is not strictly needed here, because the header
    file contains only preprocessor macros, and the preprocessor allows you to
@@ -137,17 +138,18 @@
        ./task3 15 30 45 2> log.txt
 
    The `2>` redirects `stderr` to the file with the following name. As a
-   result, the logging messages end up in `log.txt` instead of the terminal.
+   result, regular program output still goes to the terminal but the logging
+   messages end up in `log.txt` instead.
 
    If you want to discard the logging entirely, you can do
 
        ./task3 15 30 45 2> /dev/null
 
-   If you want to redirect standard output but not the logging, use `>`
+   If you want to redirect regular progam output but not the logging, use `>`
    instead of `2>`.
 
-   If you want to redirect standard output *and* logging to the same file,
-   do this:
+   If you want to redirect regular program output *and* logging to the
+   same file, do this:
 
        ./task3 15 30 45 > output.txt 2>&1
 
