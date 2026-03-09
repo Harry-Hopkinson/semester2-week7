@@ -3,6 +3,7 @@
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "logging.h"
 
 
@@ -13,9 +14,11 @@ int* get_values(int argc, char* argv[])
     int value;
     int* values = NULL;
 
-    if (argc > 1) {
+    if (argc > 1)
+    {
         values = calloc(argc - 1, sizeof(int));
-        for (int i = 0; i < argc - 1; ++i) {
+        for (int i = 0; i < argc - 1; ++i)
+        {
             value = atoi(argv[i + 1]);
             LOG_FMT("get_values(): arg \"%s\" -> %d\n", argv[i + 1], value);
             values[i] = value;
@@ -35,7 +38,8 @@ long sum_values(int data[], int n)
 
     long result = 0L;
 
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < n; ++i)
+    {
         result += data[i];
         LOG_FMT("sum_values(): i=%d, sum=%ld\n", i, result);
     }
