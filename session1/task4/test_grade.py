@@ -1,14 +1,14 @@
 # Task 4: unit tests for grade()
 
-from grades import MarkError, grade
+from grades import grade
 
 
 def assert_MarkError(bad_mark):
     try:
         grade(bad_mark)
         assert False, f"No exception thrown for mark of {bad_mark}"
-    except MarkError:
-        pass
+    except ValueError:
+        raise AssertionError(f"MarkError should be raised for mark of {bad_mark}")
     except Exception:
         assert False, "Exception should be MarkError"
 

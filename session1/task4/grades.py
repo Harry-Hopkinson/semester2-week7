@@ -3,14 +3,6 @@
 import sys
 
 
-class MarkError(Exception):
-    """
-    Exception raised if an exam mark is not valid.
-
-    To be valid, a mark must be an integer in the range 0-100.
-    """
-
-
 def read_marks(filename):
     """
     Given the name of a CSV file, reads student names and exam marks from
@@ -35,22 +27,23 @@ def grade(mark):
 
     MarkError is raised if the provided mark is not valid.
     """
+    mark = int(mark)
     if 0 <= mark < 40:
         return "Fail"
-    elif 40 <= mark <= 70:
+    elif 40 <= mark < 70:
         return "Pass"
     elif 70 <= mark <= 100:
         return "Distinction"
     else:
-        raise MarkError("marks must be in range 0-100")
+        raise ValueError(f"Invalid mark: {mark}")
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 1:
+    if len(sys.argv) != 2:
         sys.exit("Usage: python grades.py <csv-filename>")
 
     marks = read_marks(sys.argv[1])
 
     for student, mark in marks.items():
         student_grade = grade(mark)
-        print(f"{student}: {student_grade}")
+        print(f"{student}: {mark} -> {student_grade}")
