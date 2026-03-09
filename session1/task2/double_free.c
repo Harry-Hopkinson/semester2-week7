@@ -13,7 +13,7 @@ int main(void)
 
     free(a);
 
-    free(a);
+    free(a); // freeing 'a' again causes a 'double free' error
 
     return 0;
 }

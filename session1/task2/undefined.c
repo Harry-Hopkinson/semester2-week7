@@ -4,7 +4,7 @@
 
 int main(void)
 {
-    int i, j;
+    int i, j; // i and j are not declared so are random values in memory
 
     j = i + 3;
 
