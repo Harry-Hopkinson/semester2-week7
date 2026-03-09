@@ -17,8 +17,10 @@ int main(void)
 
     dyn_array = malloc(20*sizeof(int));
 
-    if (dyn_array != NULL) {
-        for (j = 0; j < 20; ++j) {
+    if (dyn_array != NULL)
+    {
+        for (j = 0; j < 20; ++j)
+        {
             printf("dyn_array[%d] = %d\n", j, dyn_array[j]);
         }
         free(dyn_array);
