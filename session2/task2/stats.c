@@ -6,7 +6,6 @@
 #define MAX_LENGTH 80
 #define MAX_SIZE 10000
 
-
 void read_data(const char* filename, float data[], int* size)
 {
     char line[MAX_LENGTH];
@@ -15,11 +14,12 @@ void read_data(const char* filename, float data[], int* size)
     *size = 0;
     FILE* infile = fopen(filename, "r");
 
-    if (infile != NULL) {
-        for (int i = 0; i < MAX_SIZE; ++i) {
-            if (fgets(line, MAX_LENGTH, infile) == NULL) {
+    if (infile != NULL)
+    {
+        for (int i = 0; i < MAX_SIZE; ++i)
+        {
+            if (fgets(line, MAX_LENGTH, infile) == NULL)
                 break;
-            }
 
             sscanf(line, "%f", &value);
             data[i] = value;
@@ -35,9 +35,8 @@ float mean_value(const float data[], int size)
 {
     float sum_values = 0.0f;
 
-    for (int i = 0; i < size; ++i) {
+    for (int i = 0; i < size; ++i)
         sum_values += data[i];
-    }
 
     return sum_values / size;
 }
@@ -47,7 +46,8 @@ float standard_deviation(const float data[], int size, float mean)
 {
     float sum_squared_diff = 0.0f;
 
-    for (int i = 0; i < size; ++i) {
+    for (int i = 0; i < size; ++i)
+    {
         float diff_mean = data[i] - mean;
         sum_squared_diff += diff_mean * diff_mean;
     }
@@ -65,8 +65,9 @@ void display_stats(float mean, float std_dev)
 
 int main(int argc, char* argv[])
 {
-    if (argc != 2) {
-        fprintf(stderr, "Usage: ./stats <filename>\n");
+    if (argc != 2)
+    {
+        fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
         return 1;
     }
 
