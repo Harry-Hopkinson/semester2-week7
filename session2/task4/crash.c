@@ -4,7 +4,8 @@
 
 void assign_values(int x[])
 {
-    for (int i = 0; i < 100; ++i) {
+    for (int i = 0; i < 100; ++i)
+    {
         x[i] = (i + 1) * (i + 1);
     }
 }
