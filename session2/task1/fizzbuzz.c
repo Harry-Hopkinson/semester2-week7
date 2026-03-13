@@ -4,25 +4,14 @@
 
 int main(void)
 {
-    int fizz = 0;
-    int buzz = 0;
-    int fizz_buzz = 0;
-
-    for (int i = 1; i <= 100; ++i) {
-        if (i % 3 == 0 && i % 5 == 0) {
-            ++fizz_buzz;
-        }
-        else if (i % 3 == 0) {
-            ++fizz;
-        }
-        else if (i % 5 == 0) {
-            ++buzz;
-        }
+    for (int i = 1; i <= 100; ++i)
+    {
+        printf("%d -> ", i);
+        if (i % 3 == 0 && i % 5 == 0) printf("Fizz Buzz\n");
+        else if (i % 3 == 0) printf("Fizz\n");
+        else if (i % 5 == 0) printf("Buzz\n");
+        else printf("\n");
     }
-
-    printf("Fizzes: %d\n", fizz);
-    printf("Buzzes: %d\n", buzz);
-    printf("Fizz Buzzes: %d\n", fizz_buzz);
 
     return 0;
 }
