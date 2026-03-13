@@ -3,13 +3,24 @@
 
 long factorial(int n)
 {
+    if (n < 0)
+    {
+        fprintf(stderr, "Error: Factorial is not defined for negative numbers.\n");
+        exit(1);
+    }
+    else if (n == 0 || n == 1)
+    {
+        return 1;
+    }
+
     return n * factorial(n - 1);
 }
 
 int main(int argc, char* argv[])
 {
-    if (argc != 2) {
-        fprintf(stderr, "Usage: ./factorial <value>\n");
+    if (argc != 2)
+    {
+        fprintf(stderr, "Usage: %s <value>\n", argv[0]);
         return 1;
     }
 

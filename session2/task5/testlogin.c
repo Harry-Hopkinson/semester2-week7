@@ -12,7 +12,8 @@ int main(void)
     char* input = (char*) malloc(8 * sizeof(char));
     char* password = (char*) malloc(8 * sizeof(char));
 
-    if (input > password) {
+    if (input > password)
+    {
         char* ptr = input;
         input = password;
         password = ptr;
@@ -38,11 +39,13 @@ int main(void)
 
     /* Authenticate by comparing acquired and stored passwords */
 
-    if (strcmp(password, input) == 0) {
+    if (strcmp(password, input) == 0)
+    {
         printf("\nLogin succeeded.\n\n");
         return 0;
     }
-    else {
+    else
+    {
         printf("\nLogin failed!\n\n");
         return 1;
     }
